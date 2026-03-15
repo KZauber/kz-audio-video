@@ -65,12 +65,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
-        </div>
+      <section className="relative py-24 md:py-32 text-white overflow-hidden" style={{
+        backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/hero-home-theater-bYz4VmVyqX6SPbzde9DQhD.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
+        <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className="container relative z-10">
+        <div className="container relative z-10 max-w-2xl">
           <div className="max-w-2xl">
             <p className="text-primary text-sm font-semibold mb-4">NEW BRAUNFELS · SAN ANTONIO · TEXAS HILL COUNTRY</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -122,21 +124,28 @@ export default function Home() {
               {
                 title: "Home Theater Installation",
                 description: "Custom home theater design and installation for San Antonio, New Braunfels, Bulverde, and Boerne homeowners. From dedicated theater rooms to media rooms, we handle projectors, screens, 4K displays, and full acoustic treatment.",
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/portfolio-project-1-c7kqAvYzB2Eg2ayN6DUsHC.webp',
               },
               {
                 title: "Surround Sound Systems",
                 description: "Professional surround sound installation throughout the Texas Hill Country and San Antonio metro area. Dolby Atmos, DTS:X, and traditional 5.1/7.1 systems — in-wall, in-ceiling, and freestanding configurations.",
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-surround-sound-akYMtT7LW9Z4YCXZJSADwA.webp',
               },
               {
                 title: "TV Sales & Installation",
                 description: "We sell and install premium flat-screen TVs — Samsung, LG, Sony, and more — as part of complete home theater and whole-home AV system projects. From 55\" to over 100\" displays integrated with your surround sound, automation, and control systems.",
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-tv-installation-ZBb7gdmBf4buHHwxS3KxDg.webp',
               },
               {
                 title: "Home Automation",
                 description: "Smart home automation integration for lighting, climate, security, and entertainment. Control your entire home from a single app or touchscreen. We program and install Control4, Lutron, and other leading platforms.",
+                image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-home-automation-nvEJyBNtAzbRNk57HNX3UU.webp',
               },
             ].map((service, idx) => (
-              <Card key={idx} className="p-8 border border-border hover:shadow-lg transition">
+              <Card key={idx} className="p-8 border border-border hover:shadow-lg transition overflow-hidden">
+                <div className="h-40 mb-4 rounded overflow-hidden -mx-8 -mt-8 mb-6">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
                 <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">Get a Quote</Button>
@@ -187,14 +196,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { type: "TV Installation", title: "Full AV System with 85\" Display — San Antonio, TX" },
-              { type: "Surround Sound", title: "7.2 Surround System — New Braunfels, TX" },
-              { type: "Home Automation", title: "Smart Home Control — Bulverde, TX" },
-              { type: "Dedicated Theater", title: "Full Home Theater Room — Boerne, TX" },
+              { type: "TV Installation", title: 'Full AV System with 85" Display — San Antonio, TX', image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-tv-installation-ZBb7gdmBf4buHHwxS3KxDg.webp' },
+              { type: "Surround Sound", title: "7.2 Surround System — New Braunfels, TX", image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-surround-sound-akYMtT7LW9Z4YCXZJSADwA.webp' },
+              { type: "Home Automation", title: "Smart Home Control — Bulverde, TX", image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/service-home-automation-nvEJyBNtAzbRNk57HNX3UU.webp' },
+              { type: "Dedicated Theater", title: "Full Home Theater Room — Boerne, TX", image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663392461276/3c6eAFYT8Fn8BKKqtPYpos/portfolio-project-1-c7kqAvYzB2Eg2ayN6DUsHC.webp' },
             ].map((project, idx) => (
               <Card key={idx} className="overflow-hidden border border-border hover:shadow-lg transition">
                 <div className="h-48 bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center">
-                  <p className="text-white text-center font-semibold">{project.type}</p>
+                  <img src={project.image} alt={project.type} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <p className="font-semibold text-foreground">{project.title}</p>
