@@ -19,6 +19,13 @@ export const SERVICE_LINKS = [
   { href: "/services/home-audio", label: "Whole Home Audio" },
 ];
 
+export const LOCATION_LINKS = [
+  { href: "/locations/san-antonio", label: "San Antonio" },
+  { href: "/locations/stone-oak", label: "Stone Oak" },
+  { href: "/locations/boerne", label: "Boerne" },
+  { href: "/locations/new-braunfels", label: "New Braunfels" },
+];
+
 export const PHONE_NUMBER = "(210) 981-4098";
 export const PHONE_TEL = "tel:2109814098";
 
@@ -53,6 +60,24 @@ export default function SiteHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium hover:text-primary transition outline-none">
+              Locations
+              <ChevronDown className="w-4 h-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              <DropdownMenuItem asChild>
+                <Link href="/locations" className="font-semibold">All Locations</Link>
+              </DropdownMenuItem>
+              {LOCATION_LINKS.map((l) => (
+                <DropdownMenuItem key={l.href} asChild>
+                  <Link href={l.href}>{l.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Link href="/blog" className="text-sm font-medium hover:text-primary transition">Blog</Link>
           <Link href="/#areas" className="text-sm font-medium hover:text-primary transition">Service Areas</Link>
           <Link href="/#portfolio" className="text-sm font-medium hover:text-primary transition">Portfolio</Link>
           <Link href="/#about" className="text-sm font-medium hover:text-primary transition">About</Link>
@@ -87,7 +112,15 @@ export default function SiteHeader() {
                 {s.label}
               </Link>
             ))}
+            <p className="text-xs uppercase font-semibold text-muted-foreground mt-3">Locations</p>
+            <Link href="/locations" className="py-2 text-sm font-medium hover:text-primary">All Locations</Link>
+            {LOCATION_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className="py-2 text-sm hover:text-primary">
+                {l.label}
+              </Link>
+            ))}
             <div className="border-t border-border mt-2 pt-2 flex flex-col gap-2">
+              <Link href="/blog" className="py-2 text-sm font-medium hover:text-primary">Blog</Link>
               <Link href="/#areas" className="py-2 text-sm font-medium hover:text-primary">Service Areas</Link>
               <Link href="/#portfolio" className="py-2 text-sm font-medium hover:text-primary">Portfolio</Link>
               <Link href="/#about" className="py-2 text-sm font-medium hover:text-primary">About</Link>

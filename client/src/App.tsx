@@ -13,6 +13,16 @@ import SmartHomeAutomation from "./pages/services/SmartHomeAutomation";
 import TVMounting from "./pages/services/TVMounting";
 import OutdoorHomeTheater from "./pages/services/OutdoorHomeTheater";
 import HomeAudio from "./pages/services/HomeAudio";
+import LocationsIndex from "./pages/locations/LocationsIndex";
+import SanAntonio from "./pages/locations/SanAntonio";
+import Boerne from "./pages/locations/Boerne";
+import StoneOak from "./pages/locations/StoneOak";
+import NewBraunfels from "./pages/locations/NewBraunfels";
+import BlogIndex from "./pages/blog/BlogIndex";
+import AVSystemNotDead from "./pages/blog/AVSystemNotDead";
+import HomeTheaterCost from "./pages/blog/HomeTheaterCost";
+import DolbyAtmosExplained from "./pages/blog/DolbyAtmosExplained";
+import OneButtonTheater from "./pages/blog/OneButtonTheater";
 
 
 function Router() {
@@ -27,6 +37,16 @@ function Router() {
       <Route path={"/services/tv-mounting"} component={TVMounting} />
       <Route path={"/services/outdoor-home-theater"} component={OutdoorHomeTheater} />
       <Route path={"/services/home-audio"} component={HomeAudio} />
+      <Route path={"/locations"} component={LocationsIndex} />
+      <Route path={"/locations/san-antonio"} component={SanAntonio} />
+      <Route path={"/locations/boerne"} component={Boerne} />
+      <Route path={"/locations/stone-oak"} component={StoneOak} />
+      <Route path={"/locations/new-braunfels"} component={NewBraunfels} />
+      <Route path={"/blog"} component={BlogIndex} />
+      <Route path={"/blog/av-system-not-dead"} component={AVSystemNotDead} />
+      <Route path={"/blog/home-theater-cost-san-antonio"} component={HomeTheaterCost} />
+      <Route path={"/blog/dolby-atmos-explained"} component={DolbyAtmosExplained} />
+      <Route path={"/blog/one-button-home-theater"} component={OneButtonTheater} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
