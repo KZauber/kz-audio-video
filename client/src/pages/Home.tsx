@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { SERVICE_LINKS } from "@/components/SiteHeader";
+import { ChevronDown, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -48,7 +56,22 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm font-medium hover:text-primary transition">Services</a>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium hover:text-primary transition outline-none">
+                Services
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64">
+                <DropdownMenuItem asChild>
+                  <Link href="/services" className="font-semibold">All Services</Link>
+                </DropdownMenuItem>
+                {SERVICE_LINKS.map((s) => (
+                  <DropdownMenuItem key={s.href} asChild>
+                    <Link href={s.href}>{s.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <a href="#areas" className="text-sm font-medium hover:text-primary transition">Service Areas</a>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition">Portfolio</a>
             <a href="#about" className="text-sm font-medium hover:text-primary transition">About</a>
@@ -331,7 +354,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-white">
+      <section id="contact" className="py-24 bg-white">
         <div className="container">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">GET YOUR FREE QUOTE</h2>
           <p className="text-center text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
@@ -474,11 +497,11 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li><a href="#services" className="hover:text-primary transition">Home Theater Installation</a></li>
-                <li><a href="#services" className="hover:text-primary transition">Surround Sound Systems</a></li>
-                <li><a href="#services" className="hover:text-primary transition">TV Sales & Installation</a></li>
-                <li><a href="#services" className="hover:text-primary transition">Home Automation</a></li>
-                <li><a href="#services" className="hover:text-primary transition">Low Voltage Wiring</a></li>
+                {SERVICE_LINKS.map((s) => (
+                  <li key={s.href}>
+                    <Link href={s.href} className="hover:text-primary transition">{s.label}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
